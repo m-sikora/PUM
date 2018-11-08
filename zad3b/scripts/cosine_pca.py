@@ -1,5 +1,5 @@
 import pandas as pd
-from sklearn.decomposition import PCA
+from sklearn.decomposition import PCA, KernelPCA
 from zad3b.src.read_data import act as read_data
 from zad3b.src.visualise import v2d
 
@@ -8,8 +8,8 @@ points = read_data('../data/PCA.png')
 df = pd.DataFrame(points)
 x = df.loc[:, list(range(2))]
 y = df.loc[:, [2]]
-pca = PCA(n_components=2)
-mapped_points = pca.fit_transform(x)
+kpca = KernelPCA(kernel="cosine", n_components=2)
+mapped_points = kpca.fit_transform(x)
 mapped_df = pd.DataFrame(mapped_points)
 final_df = pd.concat([mapped_df, y], axis=1)
 
