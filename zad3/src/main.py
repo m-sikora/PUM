@@ -24,11 +24,18 @@ all_points = pd.DataFrame(edge_points + vertex_points + inside_matched + inside_
 x = all_points.loc[:, list(range(dim_num))]
 y = all_points.loc[:, [dim_num]]
 
+print('a')
 pca = PCA(n_components=target_dim)
+print('b')
 mapped_points = pca.fit_transform(x)
+print('c')
 mapped_df = pd.DataFrame(mapped_points)
+print('d')
 final_df = pd.concat([mapped_df, y], axis=1)
+print('e')
 
+
+print('f')
 if target_dim == 2:
     v2d(final_df)
 

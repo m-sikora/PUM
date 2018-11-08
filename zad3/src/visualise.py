@@ -11,6 +11,6 @@ def v3d(df):
     fig = plt.figure()
     ax = fig.add_subplot(111, projection='3d')
     for x, y, z, c in df.values.tolist():
-        ax.scatter(x, y, z, c=c, marker='o')
+        ax.scatter(x, y, z, c=c, marker='o', s=1)
 
     plt.show()
